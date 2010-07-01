@@ -1,51 +1,51 @@
-mput ..\ams\*.php
-mput ..\ams\*.xml
+mput ..\web\*.php
+mput ..\web\*.xml
 
 mkdir imgs
 cd imgs
-mput ..\ams\imgs\*.jpg
-mput ..\ams\imgs\*.gif
+mput ..\web\imgs\*.jpg
+mput ..\web\imgs\*.gif
 
 cd ..
 
 mkdir include
 cd include
-mput ..\ams\include\*.php
+mput ..\web\include\*.php
 
 cd ..
 
 mkdir scripts
 cd scripts
-mput ..\ams\scripts\*.js
+mput ..\web\scripts\*.js
 
 cd ..
 
 mkdir styles
 cd styles
-mput ..\ams\styles\*.css
+mput ..\web\styles\*.css
 
 cd ..
 
 mkdir theme
 cd theme
-mput ..\ams\theme\*.css
+mput ..\web\theme\*.css
 
 mkdir images
 cd images
-mput ..\ams\theme\images\*.png
+mput ..\web\theme\images\*.png
 
 cd ..\..
 
 mkdir savant
 cd savant
-mput ..\ams\savant\*.php
+mput ..\web\savant\*.php
 
 mkdir Savant3
 cd Savant3
-mput ..\ams\savant\Savant3\*.php
+mput ..\web\savant\Savant3\*.php
 
 mkdir resources
 cd resources
-mput ..\ams\savant\Savant3\resources\*.php
+mput ..\web\savant\Savant3\resources\*.php
 
 bye
