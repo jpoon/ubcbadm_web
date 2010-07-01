@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ubcbadm.ErrorModal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="200" d:DesignWidth="300" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" AllowDrop="False">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Rectangle Height="200" Width="300" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="rectangle1" Stroke="Black" StrokeThickness="1" Opacity="0.7" Fill="#FFD1D1D1" />
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="201,156,0,0" Name="close_button" VerticalAlignment="Top" Width="75" Click="close_button_Click" />
+        <Image Height="54" HorizontalAlignment="Left" Margin="25,26,0,0" Name="image1" VerticalAlignment="Top" Width="54" Source="/ubcbadm;component/Resources/warning.png" />
+        <TextBlock Height="48" HorizontalAlignment="Left" Margin="25,98,0,0" Name="description_textBlock" Text="" VerticalAlignment="Top" Width="251" TextWrapping="Wrap" />
+        <TextBlock Height="54" HorizontalAlignment="Left" Margin="97,26,0,0" Name="heading_textBlock" Text="" VerticalAlignment="Top" Width="179" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" />
+    </Grid>
+</UserControl>

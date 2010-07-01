@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body> 
+<div id="wideContainer">
+    {% if message %}
+    <div id="msg">
+        {{ message }}
+    </div>
+    {% endif %}
+    <table id="memberList">
+        <tr>
+            <th><a href="/admin/memberList?sort=memberNo">No.</a></th>
+            <th><a href="/admin/memberList?sort=firstName">First Name</a></th>
+            <th><a href="/admin/memberList?sort=lastName">Last Name</a></th>
+            <th><a href="/admin/memberList?sort=ubcAffliation">Affiliation</a></th>
+            <th>Student No</a></th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th><a href="/admin/memberList?sort=level">Level</a></th>
+        </tr>
+        {% for member in memberList %}
+        <tr>
+            <td><a href="/admin/memberEdit?id={{ member.emailHash }}">{{ member.memberNo }}</a></td>
+            <td>{{ member.firstName }}</td>
+            <td>{{ member.lastName }}</td>
+            <td>{{ member.ubcAffliation }}</td>
+            <td>
+                {% ifequal member.studentNo None %}
+                    N/A
+                {% else %}
+                    {{ member.studentNo }}
+                {% endifequal %}
+            </td>
+            <td>{{ member.phoneNumber }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.level }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,165 @@
+/* Global Styles */
+* {
+    font-family:Segou UI, Arial, sans-serif;
+}
+
+body {
+    background-color:#c7c7c7;
+    background-image:url(../imgs/bg.jpg);
+    background-repeat:repeat-x;
+    font-size:13px;
+}
+
+table {
+    border-collapse:collapse;
+    font-size:15px;
+}
+
+#container {
+    margin:0px auto;
+    padding:15px;
+    width:560px;
+    overflow:hidden;
+    background-color:#FFFFFF;
+    border:1px solid #000000;
+}
+
+#wideContainer {
+    margin:0px auto;
+    padding:15px;
+    width:900px;
+    overflow:hidden;
+    background-color:#FFFFFF;
+    border:1px solid #000000;
+}
+
+#title {
+    padding:5px;
+    background-color:#c7c7c7;
+    border:1px solid black;
+    font-size:15px;
+    font-weight:bold;
+}
+
+#memberInfo {
+    margin:8px 0px 8px 0px;
+    font-size:12px;
+}
+
+#memberInfo td {
+    padding:3px 6px 3px 6px;
+    border:1px solid #c7c7c7;
+}
+
+#memberList {
+    width:100%;
+    font-size:13px;
+}
+
+    #memberList th {
+        background-color:#c7c7c7;
+        border:1px solid #000000;
+        padding:4px;
+    }
+
+        #memberList th > a {
+            color:#000000;
+        }
+
+    #memberList td {
+        border-bottom:1px solid #000000;
+        padding:4px;
+    }
+
+        #memberList td > a {
+            color: red;
+            font-weight:bold;
+        }
+
+#footer {
+    font-size:11px;
+    text-align:right;
+    margin-top:10px;
+    padding:2px 10px 6px 0px;
+}
+
+    #footer a {
+        text-decoration:none;
+    }
+
+#msg {
+    background-color:#66FF33;
+    border:1px solid black;
+    padding:5px 15px 5px 15px;
+    margin-bottom:10px;
+}
+
+#errorMsg {
+    background-color:#f578a1;
+    border:1px solid red;
+    padding:10px;
+    margin-bottom:15px;
+}
+
+#errorMsg p {
+    margin:4px;
+}
+
+#registerForm {
+    width:100%;
+}
+
+    #registerForm tr {
+        height:60px;
+    }
+
+    #registerForm td {
+        padding:5px;
+    }
+
+#memberEditForm {
+    width:100%;
+}
+
+    #memberEditForm tr {
+        height:30px;
+    }
+
+    #memberEditForm td {
+        padding:5px;
+    }
+
+#memberEditConfirmForm {
+    width:100%;
+}
+
+    #memberEditConfirmForm th {
+        border:1px solid #000000;
+        background-color:#c7c7c7;
+    }
+
+    #memberEditConfirmForm td {
+        padding:2px;
+        border-bottom:1px solid #000000;
+    }
+
+.formLabel {
+    width:120px;
+    text-align:right;
+    vertical-align:middle;
+}
+
+.formError {
+    width:175px;
+    text-align:left;
+    font-size:12px;
+    vertical-align:middle;
+}
+
+.button {
+    margin:15px 0px 0px 15px;
+}
+
+.clear {
+    clear:both;
+}

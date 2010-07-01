@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+    <p>{{ content }}</p>
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="http://www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
+

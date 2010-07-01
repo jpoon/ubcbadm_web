@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ubcbadm", "ubcbadm\ubcbadm.csproj", "{7AAC08AE-51B3-49CB-AD16-4B6F7CB685A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ubcbadm.Web", "ubcbadm.Web\ubcbadm.Web.csproj", "{3908AAF6-775F-4624-97AF-B29C9F0A8D34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AAC08AE-51B3-49CB-AD16-4B6F7CB685A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AAC08AE-51B3-49CB-AD16-4B6F7CB685A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AAC08AE-51B3-49CB-AD16-4B6F7CB685A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAC08AE-51B3-49CB-AD16-4B6F7CB685A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3908AAF6-775F-4624-97AF-B29C9F0A8D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3908AAF6-775F-4624-97AF-B29C9F0A8D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3908AAF6-775F-4624-97AF-B29C9F0A8D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3908AAF6-775F-4624-97AF-B29C9F0A8D34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

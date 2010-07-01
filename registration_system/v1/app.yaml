@@ -1,0 +1,30 @@
+application: ubc-badm
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /styles
+  static_dir: static/styles
+
+- url: /imgs
+  static_dir: static/imgs
+
+- url: /scripts
+  static_dir: static/scripts
+
+- url: /favicon.ico
+  static_dir: static/imgs/favicon.ico
+
+- url: /register.*
+  script: registration.py
+  login: admin
+  secure: always
+
+- url: /activate.*
+  script: registration.py
+
+- url: /admin.*
+  script: admin.py
+  login: admin
+  secure: always

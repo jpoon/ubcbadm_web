@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body onload="formConfirmOnLoad();"> 
+<div id="container">
+    <div id="title">
+        UBC Badminton Club - Membership Registration
+    </div>
+    
+    <form   id="memberRegistrationConfirm"
+            name="memberRegistrationConfirm"
+            action="/register/confirm?id={{ key }}" 
+            method="post" 
+            onSubmit="return validateForm(this.id);">
+        <p> Now that we have all your information, in order to proceed with registration, we require... </p>
+        <ol><li>Proof of membership in the AMS (i.e. your UBC card)</li>
+            <li>Membership dues will need to be paid in full. 
+                <b>
+                {% ifequal ubcAffliation "Other (Non-AMS)" %}
+                    As a Non-AMS (Associate) member, the membership cost is $60
+                {% else %}
+                    As a {{ memberType }} member, the membership cost is 
+                    {% ifequal memberType "New" %}
+                        $50
+                    {% else %}
+                        $40
+                    {% endifequal %}
+                {% endifequal %} 
+                </b>.</li>
+            <li>Your signature on the AMS Liability Waiver form</li>
+        </ol>
+
+        <table id="registerForm">
+            <tr>
+                <td>Executive Confirmation:</td>
+                <td>
+                    <input  id="execConfirm" 
+                        type="password"
+                        size="28" 
+                        name="execConfirm" />
+                </td>
+                <td class="formError">
+                    <i>
+                    <label id="execConfirm_lbl" class="formError"></label>
+                    </i>
+        </table>
+
+        <input class="button" type="submit" value="Register" />
+        <input class="button" type="reset" value="Clear" />
+    </form>
+
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
+

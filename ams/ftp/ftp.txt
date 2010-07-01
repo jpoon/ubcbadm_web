@@ -1,0 +1,51 @@
+mput ..\ams\*.php
+mput ..\ams\*.xml
+
+mkdir imgs
+cd imgs
+mput ..\ams\imgs\*.jpg
+mput ..\ams\imgs\*.gif
+
+cd ..
+
+mkdir include
+cd include
+mput ..\ams\include\*.php
+
+cd ..
+
+mkdir scripts
+cd scripts
+mput ..\ams\scripts\*.js
+
+cd ..
+
+mkdir styles
+cd styles
+mput ..\ams\styles\*.css
+
+cd ..
+
+mkdir theme
+cd theme
+mput ..\ams\theme\*.css
+
+mkdir images
+cd images
+mput ..\ams\theme\images\*.png
+
+cd ..\..
+
+mkdir savant
+cd savant
+mput ..\ams\savant\*.php
+
+mkdir Savant3
+cd Savant3
+mput ..\ams\savant\Savant3\*.php
+
+mkdir resources
+cd resources
+mput ..\ams\savant\Savant3\resources\*.php
+
+bye

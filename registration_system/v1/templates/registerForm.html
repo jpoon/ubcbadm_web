@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body onload="formOnLoad();">
+<div id="container">
+    <div id="title">
+        UBC Badminton Club - Membership Registration
+    </div>
+    
+    <table id="memberInfo">
+        <tr><td><b>Membership Duration</b></td>
+            <td>8 months (Sept. - April)</td></tr>
+        <tr><td rowspan="3"><b>Gym Times</b></td>
+            <td rowspan="2">Term 1</td>
+            <td>Tuesday @ 4:30pm-6:30pm</td></tr>
+        <tr><td>Friday @ 6:30pm-11:00pm</td></tr>
+        <tr><td>Term 2</td>
+            <td>TBD</td></tr>
+        <tr><td rowspan="3"><b>Membership Fees</b></td>
+            <td>New Member:</td><td>$50</td></tr>
+        <tr><td>Returning Member:</td><td>$40</td></tr>
+        <tr><td>Non-AMS Member:</td><td>$60</td></tr>
+        <tr><td><b>Payment</b></td>
+            <td colspan="2">Membership fees due in-full upon registration</td></tr>
+    </table>
+    {% if messageList %}
+    <div id="errorMsg">
+        {% for msg in messageList %}
+            <i><p>{{ msg }}</p></i>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form   id="memberRegistration"
+            name="memberRegistration"
+            action="/register" 
+            method="post" 
+            onSubmit="return validateForm(this.id);">
+        <table id="registerForm">
+        {% for formField in formFieldList %}
+        <tr id="{{ formField.formInputName }}_tr">
+            <td class="formLabel">{{ formField.formLabel }}:</td>
+            <td>
+                {% ifequal formField.formType "radio" %}
+                    {% for radioValue in formField.formOptions %}
+                        <input  onFocus="formRowHighlight(this.name)" 
+                                onBlur="formRowUnhighlight(this.name)" 
+                                type="{{ formField.formType }}" 
+                                name="{{ formField.formInputName }}" 
+                                value="{{ radioValue }}"
+                                {% if forloop.first %}
+                                checked 
+                                {% endif %} />
+                        {{ radioValue }} 
+                        <br />
+                    {% endfor %}
+                {% else %}
+                <input  id="{{ formField.formLabel }}" 
+                        onFocus="formRowHighlight(this.name)" 
+                        onBlur="formRowUnhighlight(this.name)" 
+                        type="{{ formField.formType }}" 
+                        size="28" 
+                        name="{{ formField.formInputName }}" 
+                        value="{{ formField.formValue }}" />
+                {% endifequal %}
+            </td>
+            <td class="formError">
+                <i>
+                <label id="{{ formField.formLabel }}_lbl" class="formError"></label>
+                </i>
+            </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+        <input class="button" type="submit" value="Register" />
+        <input class="button" type="reset" value="Clear" />
+    </form>
+
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
+

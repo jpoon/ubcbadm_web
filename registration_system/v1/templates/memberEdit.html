@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body> 
+<div id="container">
+    <p><b>WARNING:</b> Careful what you modify; no input checking is performed to ensure validity of data</p>
+    <form   id="memberEdit"
+            name="memberEdit"
+            action="/admin/memberEdit?id={{ id }}"
+            method="post"
+            onSubmit="return validateForm(this.id);">
+        <table id="memberEditForm">
+            <tr>
+                <td>First Name</td>
+                <td><input name="firstName" value="{{ member.firstName }}" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input name="lastName" value="{{ member.lastName }}" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input name="email" value="{{ member.email }}" /></td>
+            </tr>
+        </table>
+
+        <input class="button" type="submit" value="Save" />
+        <input type="button" name="Cancel" value="Cancel" onclick="window.location = '{{ cancelUrl }}'" />
+    </form>
+
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
+

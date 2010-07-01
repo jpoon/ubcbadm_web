@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body> 
+<div id="wideContainer">
+    <form   id="memberEditConfirm"
+            name="memberEditConfirm"
+            action="/admin/memberEdit?id={{ emailHash }}&confirm=true"
+            method="post">
+        <table id="memberEditConfirmForm">
+            <tr>
+                <th>Attribute</th>
+                <th>Previous Value</th>
+                <th>New Value</th>
+            </tr>
+            {% for member in memberEditList %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.prev }}</td>
+                <td>{{ member.new }}</td>
+            </tr>
+            <input id="{{ member.name }}" name="{{ member.name }}" value="{{ member.new }}" style="display:none;" />
+            {% endfor %}
+        </table>
+
+        <input class="button" type="submit" value="Confirm" />
+        <input type="button" name="Cancel" value="Cancel" onclick="window.location = '{{ cancelUrl }}' " />  
+    </form>
+
+    <div id="footer">
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\bin\ubcbadm.Web.dll
+C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\bin\ubcbadm.Web.pdb
+C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Release\ubcbadm.Web.dll
+C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Release\ubcbadm.Web.pdb

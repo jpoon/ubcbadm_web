@@ -1,0 +1,354 @@
+FTP Commands 
+--------------- 
+open www.ams.ubc.ca 
+badminton
+cw4272
+mput ..\ams\*.php
+mput ..\ams\*.xml
+
+mkdir imgs
+cd imgs
+mput ..\ams\imgs\*.jpg
+mput ..\ams\imgs\*.gif
+
+cd ..
+
+mkdir include
+cd include
+mput ..\ams\include\*.php
+
+cd ..
+
+mkdir scripts
+cd scripts
+mput ..\ams\scripts\*.js
+
+cd ..
+
+mkdir styles
+cd styles
+mput ..\ams\styles\*.css
+
+cd ..
+
+mkdir theme
+cd theme
+mput ..\ams\theme\*.css
+
+mkdir images
+cd images
+mput ..\ams\theme\images\*.png
+
+cd ..\..
+
+mkdir savant
+cd savant
+mput ..\ams\savant\*.php
+
+mkdir Savant3
+cd Savant3
+mput ..\ams\savant\Savant3\*.php
+
+mkdir resources
+cd resources
+mput ..\ams\savant\Savant3\resources\*.php
+
+bye
+ 
+FTP Log 
+--------------- 
+ftp> Connected to mail.ams.ubc.ca.
+open www.ams.ubc.ca 
+220 Microsoft FTP Service
+User (mail.ams.ubc.ca:(none)): 
+331 Password required for badminton.
+
+230 User badminton logged in.
+ftp> mput ..\ams\*.php
+200 PORT command successful.
+150 Opening ASCII mode data connection for aboutus.php.
+226 Transfer complete.
+ftp: 2673 bytes sent in Seconds Kbytes/sec.
+0.0472.24200 PORT command successful.
+150 Opening ASCII mode data connection for doublesleague.php.
+226 Transfer complete.
+ftp: 2093 bytes sent in Seconds Kbytes/sec.
+0.02130.81200 PORT command successful.
+150 Opening ASCII mode data connection for index.php.
+226 Transfer complete.
+ftp: 1786 bytes sent in Seconds Kbytes/sec.
+0.0359.53200 PORT command successful.
+150 Opening ASCII mode data connection for membership.php.
+226 Transfer complete.
+ftp: 3039 bytes sent in Seconds Kbytes/sec.
+0.2910.44200 PORT command successful.
+150 Opening ASCII mode data connection for photo.php.
+226 Transfer complete.
+ftp: 595 bytes sent in Seconds Kbytes/sec.
+0.134.54200 PORT command successful.
+150 Opening ASCII mode data connection for schedule.php.
+226 Transfer complete.
+ftp: 3669 bytes sent in Seconds Kbytes/sec.
+0.1919.52200 PORT command successful.
+150 Opening ASCII mode data connection for search.php.
+226 Transfer complete.
+ftp: 773 bytes sent in Seconds Kbytes/sec.
+0.145.41200 PORT command successful.
+150 Opening ASCII mode data connection for template.php.
+226 Transfer complete.
+ftp: 1706 bytes sent in Seconds Kbytes/sec.
+ftp> 0.0289.79mput ..\ams\*.xml
+200 PORT command successful.
+150 Opening ASCII mode data connection for sitemap.xml.
+226 Transfer complete.
+ftp: 1284 bytes sent in Seconds Kbytes/sec.
+ftp> 0.168.28ftp> 
+mkdir imgs
+550 imgs: Cannot create a file when that file already exists. 
+ftp> cd imgs
+250 CWD command successful.
+ftp> mput ..\ams\imgs\*.jpg
+200 PORT command successful.
+150 Opening ASCII mode data connection for bg.jpg.
+226 Transfer complete.
+ftp: 10551 bytes sent in Seconds Kbytes/sec.
+0.2345.87200 PORT command successful.
+150 Opening ASCII mode data connection for execs.jpg.
+226 Transfer complete.
+ftp: 79900 bytes sent in Seconds Kbytes/sec.
+2.0339.28200 PORT command successful.
+150 Opening ASCII mode data connection for floor.jpg.
+226 Transfer complete.
+ftp: 55097 bytes sent in Seconds Kbytes/sec.
+1.3939.55200 PORT command successful.
+150 Opening ASCII mode data connection for header.jpg.
+226 Transfer complete.
+ftp: 25604 bytes sent in Seconds Kbytes/sec.
+0.6738.44200 PORT command successful.
+150 Opening ASCII mode data connection for osbourne.jpg.
+226 Transfer complete.
+ftp: 34257 bytes sent in Seconds Kbytes/sec.
+0.8440.64200 PORT command successful.
+150 Opening ASCII mode data connection for serve.jpg.
+226 Transfer complete.
+ftp: 149947 bytes sent in Seconds Kbytes/sec.
+ftp> 4.0037.45ftp> mput ..\ams\imgs\*.gif
+..\ams\imgs\*.gif:File not found 
+ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir include
+550 include: Cannot create a file when that file already exists. 
+ftp> cd include
+250 CWD command successful.
+ftp> mput ..\ams\include\*.php
+200 PORT command successful.
+150 Opening ASCII mode data connection for footer.php.
+226 Transfer complete.
+ftp: 1179 bytes sent in Seconds Kbytes/sec.
+0.225.29200 PORT command successful.
+150 Opening ASCII mode data connection for header.php.
+226 Transfer complete.
+ftp: 552 bytes sent in Seconds Kbytes/sec.
+0.143.89200 PORT command successful.
+150 Opening ASCII mode data connection for html_head.php.
+226 Transfer complete.
+ftp: 1982 bytes sent in Seconds Kbytes/sec.
+0.02110.11200 PORT command successful.
+150 Opening ASCII mode data connection for navigation.php.
+226 Transfer complete.
+ftp: 604 bytes sent in Seconds Kbytes/sec.
+ftp> 0.232.61ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir scripts
+550 scripts: Cannot create a file when that file already exists. 
+ftp> cd scripts
+250 CWD command successful.
+ftp> mput ..\ams\scripts\*.js
+200 PORT command successful.
+150 Opening ASCII mode data connection for googleSearchResults.js.
+226 Transfer complete.
+ftp: 2934 bytes sent in Seconds Kbytes/sec.
+ftp> 0.1717.26ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir styles
+550 styles: Cannot create a file when that file already exists. 
+ftp> cd styles
+250 CWD command successful.
+ftp> mput ..\ams\styles\*.css
+200 PORT command successful.
+150 Opening ASCII mode data connection for main.css.
+226 Transfer complete.
+ftp: 2784 bytes sent in Seconds Kbytes/sec.
+ftp> 0.02163.76ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir theme
+550 theme: Cannot create a file when that file already exists. 
+ftp> cd theme
+250 CWD command successful.
+ftp> mput ..\ams\theme\*.css
+200 PORT command successful.
+150 Opening ASCII mode data connection for jquery-ui-1.7.2.custom.css.
+226 Transfer complete.
+ftp: 27462 bytes sent in Seconds Kbytes/sec.
+0.9229.98200 PORT command successful.
+150 Opening ASCII mode data connection for ui.accordion.css.
+226 Transfer complete.
+ftp: 731 bytes sent in Seconds Kbytes/sec.
+0.135.85200 PORT command successful.
+150 Opening ASCII mode data connection for ui.all.css.
+226 Transfer complete.
+ftp: 47 bytes sent in Seconds Kbytes/sec.
+0.270.18200 PORT command successful.
+150 Opening ASCII mode data connection for ui.base.css.
+226 Transfer complete.
+ftp: 250 bytes sent in Seconds Kbytes/sec.
+0.260.97200 PORT command successful.
+150 Opening ASCII mode data connection for ui.core.css.
+226 Transfer complete.
+ftp: 1351 bytes sent in Seconds Kbytes/sec.
+0.216.46200 PORT command successful.
+150 Opening ASCII mode data connection for ui.datepicker.css.
+226 Transfer complete.
+ftp: 3936 bytes sent in Seconds Kbytes/sec.
+0.2118.57200 PORT command successful.
+150 Opening ASCII mode data connection for ui.dialog.css.
+226 Transfer complete.
+ftp: 1164 bytes sent in Seconds Kbytes/sec.
+0.157.97200 PORT command successful.
+150 Opening ASCII mode data connection for ui.progressbar.css.
+226 Transfer complete.
+ftp: 169 bytes sent in Seconds Kbytes/sec.
+0.210.82200 PORT command successful.
+150 Opening ASCII mode data connection for ui.resizable.css.
+226 Transfer complete.
+ftp: 993 bytes sent in Seconds Kbytes/sec.
+0.195.12200 PORT command successful.
+150 Opening ASCII mode data connection for ui.slider.css.
+226 Transfer complete.
+ftp: 931 bytes sent in Seconds Kbytes/sec.
+0.136.95200 PORT command successful.
+150 Opening ASCII mode data connection for ui.tabs.css.
+226 Transfer complete.
+ftp: 1036 bytes sent in Seconds Kbytes/sec.
+0.205.15200 PORT command successful.
+150 Opening ASCII mode data connection for ui.theme.css.
+226 Transfer complete.
+ftp: 17151 bytes sent in Seconds Kbytes/sec.
+ftp> 0.3943.86ftp> 
+mkdir images
+550 images: Cannot create a file when that file already exists. 
+ftp> cd images
+250 CWD command successful.
+ftp> mput ..\ams\theme\images\*.png
+200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_217bc0_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2120.42200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_222222_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.1430.55200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_2e83ff_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2120.80200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_454545_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.1430.55200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_469bdd_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2418.51200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_6da8d5_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2022.07200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_888888_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2219.68200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_cd0a0a_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2220.04200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_d8e7f3_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+0.2319.42200 PORT command successful.
+150 Opening ASCII mode data connection for ui-icons_f9bd01_256x240.png.
+226 Transfer complete.
+ftp: 4369 bytes sent in Seconds Kbytes/sec.
+ftp> 0.2220.32ftp> 
+cd ..\..
+250 CWD command successful.
+ftp> ftp> 
+mkdir savant
+550 savant: Cannot create a file when that file already exists. 
+ftp> cd savant
+250 CWD command successful.
+ftp> mput ..\ams\savant\*.php
+200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3.php.
+226 Transfer complete.
+ftp: 29261 bytes sent in Seconds Kbytes/sec.
+ftp> 0.8833.10ftp> 
+mkdir Savant3
+550 Savant3: Cannot create a file when that file already exists. 
+ftp> cd Savant3
+250 CWD command successful.
+ftp> mput ..\ams\savant\Savant3\*.php
+200 PORT command successful.
+150 Opening ASCII mode data connection for Error.php.
+226 Transfer complete.
+ftp: 1600 bytes sent in Seconds Kbytes/sec.
+0.0280.00200 PORT command successful.
+150 Opening ASCII mode data connection for Exception.php.
+226 Transfer complete.
+ftp: 427 bytes sent in Seconds Kbytes/sec.
+0.202.18200 PORT command successful.
+150 Opening ASCII mode data connection for Filter.php.
+226 Transfer complete.
+ftp: 1238 bytes sent in Seconds Kbytes/sec.
+0.304.17200 PORT command successful.
+150 Opening ASCII mode data connection for Plugin.php.
+226 Transfer complete.
+ftp: 1050 bytes sent in Seconds Kbytes/sec.
+ftp> 0.137.89ftp> 
+mkdir resources
+550 resources: Cannot create a file when that file already exists. 
+ftp> cd resources
+250 CWD command successful.
+ftp> mput ..\ams\savant\Savant3\resources\*.php
+200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3_Filter_trimwhitespace.php.
+226 Transfer complete.
+ftp: 3314 bytes sent in Seconds Kbytes/sec.
+0.2612.95200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3_Plugin_ahref.php.
+226 Transfer complete.
+ftp: 2101 bytes sent in Seconds Kbytes/sec.
+0.0365.66200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3_Plugin_date.php.
+226 Transfer complete.
+ftp: 2285 bytes sent in Seconds Kbytes/sec.
+0.02114.25200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3_Plugin_htmlAttribs.php.
+226 Transfer complete.
+ftp: 1149 bytes sent in Seconds Kbytes/sec.
+0.129.66200 PORT command successful.
+150 Opening ASCII mode data connection for Savant3_Plugin_image.php.
+226 Transfer complete.
+ftp: 4373 bytes sent in Seconds Kbytes/sec.
+ftp> 0.1824.16ftp> 
+bye
+221  

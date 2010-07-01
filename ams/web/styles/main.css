@@ -1,0 +1,192 @@
+/* Global Styles */
+* {
+   font-family:Segoe UI, Arial, sans-serif;
+}
+
+body {
+    background-color:#c7c7c7;
+    background-image:url(../imgs/bg.jpg); 
+	background-repeat:repeat-x;
+	font-size:13px;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+ul {
+    margin:0px;
+}
+
+a {
+	color: #993300;
+}
+
+a:hover {
+	color: #1D4668;
+}
+
+.clear {
+    clear:both;
+}
+
+/* Header */
+#header {
+    width:960px;
+    height:100px;
+    position:relative;    
+    background:#c7c7c7 url(../imgs/header.jpg) no-repeat;
+}
+
+#searchBox {
+    position:absolute;
+    bottom:0;
+    right:0;
+    vertical-align:bottom;
+    padding:15px;
+}
+
+/* Navigation */
+#navigationTable {
+	margin:20px 0px 30px 2px;
+    border:0px;
+    width:100%;
+}
+
+    #navigationTable td {
+	    border-top:1px solid #ffffff;
+    }
+
+    #navigationTable a {
+	    color:#ffffff;
+    	display:block;        
+	    font-weight:bold;
+        font-size:12px;
+    	letter-spacing:1px;
+        line-height:16px;
+    	padding:8px 0px 10px 15px;
+        text-decoration:none;
+    }
+
+    #navigationTable a:hover {
+	    background: #ffffff;
+    	color: #02243C;
+        letter-spacing:2px;
+    }
+
+/* Page Layout */
+#container {
+    margin:0px auto;
+	padding:0px;
+	width:960px;
+}
+
+#contentContainer {
+    overflow:hidden;
+    background:#02243C;
+}
+
+#navibar {
+	width:140px;
+	background:#02243C;
+    float:left;
+}
+
+#content {
+	background:#ffffff;
+	border-right:2px solid #02243C;
+    min-height:250px;
+	padding:20px 30px 30px 30px;
+    float:right;    
+	width:756px;    
+}
+
+#centercontent {
+    float:left;
+	width: 510px;
+}
+
+#rightcontent {
+    float:right;
+	width:200px;
+    margin:20px 10px 0px 0px;
+	padding:12px 10px 20px 10px;
+	border:1px dashed #000000;
+	background:#e4ecd9;
+	line-height:16px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    behavior:url(border-radius.htc);
+}
+
+/* Footer */
+#footer {
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+	text-align: right;
+	background-color: #02243C;
+	padding: 6px 10px 6px 0px;
+	color: #F0F5FA;
+}
+
+    #footer a {
+    	color: #F0F5FA;
+        text-decoration:none;
+    }
+
+#accordion ul {
+    padding:0px;
+}
+
+/* Titles */
+h1 {
+	font-weight:bold;
+    font-variant:small-caps;
+    font-size:17px;
+	color:#993300;
+	margin:15px 10px 10px 0px;
+	letter-spacing:2px;
+}
+
+h2 {
+	font-weight:bold;
+    font-size:12px;
+	color:#993300;
+	letter-spacing:1px;
+	margin:8px 0px 0px 0px;
+}
+
+h4 {
+}
+
+.date {
+	font-size:11px;
+	font-weight: normal;
+	display: block;
+}
+
+/* Images */
+#imgFloor {
+    float:left;
+    height:150px;
+    margin:0px 15px 0px 0px;
+}
+
+#img07Execs {
+    float:right;
+    width:400px;
+    margin:0px 10px 0px 0px;
+}
+
+#imgServe {
+    float:right;
+    margin:0px 0px 20px 25px;
+    width:330px;
+}
+
+#imgOsbourne {
+    float:right;
+    height:175px;
+    margin:0px 0px 0px 20px;
+}

@@ -1,0 +1,33 @@
+application: ubc-badminton
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /styles
+  static_dir: static_files/styles
+
+- url: /imgs
+  static_dir: static_files/imgs
+
+- url: /favicon.ico
+  static_dir: static_files/imgs/favicon.ico
+
+- url: /scripts
+  static_dir: static_files/scripts
+
+- url: /crossdomain.xml
+  static_files: static_files/crossdomain.xml
+  upload: static_files/crossdomain.xml
+
+- url: /member.*
+  script: /member/memberView.py
+
+- url: /
+  static_files: static_files/index.html
+  upload: static_files/index.html
+
+- url: /ubcbadm.xap
+  static_files: static_files/ubcbadm.xap
+  upload: static_files/ubcbadm.xap
+  mime_type: application/x-silverlight-app

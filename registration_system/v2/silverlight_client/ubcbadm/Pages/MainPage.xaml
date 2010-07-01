@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="ubcbadm.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ubcbadm="clr-namespace:ubcbadm;assembly=ubcbadm"
+    mc:Ignorable="d"
+    d:DesignHeight="400" d:DesignWidth="650" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+
+        <Grid x:Name="LayoutRoot" Background="White">
+        <sdk:TabControl HorizontalAlignment="Left" Name="tabControl" VerticalAlignment="Top" Width="650" Height="400">
+            <sdk:TabItem Header="Information" Name="info_tabItem">
+                <Grid>
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,6,0,0" Name="about_label" VerticalAlignment="Top" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold" Content="About Us" />
+                    <TextBlock Height="55" HorizontalAlignment="Left" Margin="16,30,0,0" Name="textBlock1" Text="The University of British Columbia (UBC) Badminton Club is a registered AMS club at the University of British Columbia in Vancouver, British Columbia, Canada. The club is wholly administered and organized by a group of passionate badminton players who are commited to promoting and encouraging the sport of badminton." VerticalAlignment="Top" Width="607" TextWrapping="Wrap" />
+                    <sdk:Label Content="Membership" FontSize="14" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="16,91,0,0" Name="membership_label" VerticalAlignment="Top" Width="166" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,130,0,0" Name="fees_label" VerticalAlignment="Top" Width="120" Content="Fees:" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="142,126,0,0" Name="fees_comboBox" VerticalAlignment="Top" Width="161" SelectionChanged="fees_comboBox_SelectionChanged">
+                        <ComboBoxItem Content="New Member"></ComboBoxItem>
+                        <ComboBoxItem Content="Returning Member"></ComboBoxItem>
+                        <ComboBoxItem Content="Non-AMS Member"></ComboBoxItem>
+                    </ComboBox>
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="87,130,0,0" Name="feeAmount_label" VerticalAlignment="Top" Width="120" Content="fee" />
+                    <sdk:Label Content="Duration:" Height="28" HorizontalAlignment="Left" Margin="16,158,0,0" Name="duration_label" VerticalAlignment="Top" Width="120" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="87,158,0,0" Name="duration_textBlock" Text="8 months (September - April)" VerticalAlignment="Top" Width="216" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,183,0,0" Name="benefits_label" VerticalAlignment="Top" Width="65" Content="Benefits:" />
+                    <TextBlock Height="68" HorizontalAlignment="Left" Margin="87,183,0,0" Name="benefits_textBlock" Text="all necessary equipment provided (rackets, nylon shuttlecocks), members-only tournament, food nights, discounted open tournament registration fees, subsidized UBC Rec badminton tournaments, over 40 gym nights thoughout the year, recreational and competitive games for all level of play, organized queue board system" VerticalAlignment="Top" Width="536" TextWrapping="Wrap" />
+                    <sdk:Label Content="Gym Schedule" FontSize="14" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="16,272,0,0" Name="schedule_label" VerticalAlignment="Top" Width="166" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,301,0,0" Name="term1_label" VerticalAlignment="Top" Width="120" Content="Term 1:" />
+                    <sdk:Label Content="Term 2:" Height="28" HorizontalAlignment="Left" Margin="16,321,0,0" Name="term2_label" VerticalAlignment="Top" Width="120" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="87,301,0,0" Name="term1_textBlock" Text="Tuesday @ 4:30-6:30pm | Friday @ 6:30-11pm" VerticalAlignment="Top" Width="536" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="87,321,0,0" Name="term2_textBlock" Text="TBA" VerticalAlignment="Top" Width="536" />
+                    <Image Height="80" HorizontalAlignment="Left" Margin="543,269,0,0" Name="image1"  VerticalAlignment="Top" Width="80" Source="/ubcbadm;component/Resources/pictogram.jpg" />
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Registration" Name="register_tabItem">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51*" />
+                        <ColumnDefinition Width="587*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="1" Height="54" HorizontalAlignment="Left" Margin="273,122,0,0" Name="rectangle2" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="293" Fill="#FFFAD1D1" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="24,20,0,0" Name="firstName_label" VerticalAlignment="Top" Width="106" Content="First Name:" Grid.ColumnSpan="2" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="0,16,352,0" Name="firstName_textBox" VerticalAlignment="Top" Width="158" Text="{Binding firstName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    <sdk:Label Content="Last Name:" Height="28" HorizontalAlignment="Left" Margin="285,20,0,0" Name="lastName_label" VerticalAlignment="Top" Width="106" Grid.Column="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="397,16,0,0" Name="lastName_textBox" VerticalAlignment="Top" Width="158" Text="{Binding lastName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    <sdk:Label Content="UBC Affiliation:" Height="28" HorizontalAlignment="Left" Margin="24,54,0,0" Name="ubcAffiliation_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+                    <RadioButton Content="Student" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,54,0,0" Name="student_radioButton" VerticalAlignment="Top" Checked="student_radioButton_Checked" Unchecked="student_radioButton_Unchecked" IsChecked="True" Grid.Column="1" Click="feesOwed" />
+                    <RadioButton Content="Faculty" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,76,0,0" Name="faculty_radioButton" VerticalAlignment="Top" Grid.Column="1" Click="feesOwed" />
+                    <RadioButton Content="Other (Non-AMS)" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,98,0,0" Name="other_radioButton" VerticalAlignment="Top" Grid.Column="1" Click="feesOwed" />
+                    
+                    <Grid Height="25" HorizontalAlignment="Left" Margin="285,57,0,0" Name="studentNoGrid" VerticalAlignment="Top" Width="270" Grid.Column="1">
+                        <sdk:Label Content="Student Number:" Height="28" HorizontalAlignment="Left" Name="studentNo_label" VerticalAlignment="Top" Width="106" />
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="112,0,0,0" Name="studentNo_textBox" Text="{Binding studentNo, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="158" />
+                    </Grid>
+                    
+                    <sdk:Label Content="Phone Number:" Height="28" HorizontalAlignment="Left" Margin="22,129,0,0" Name="phoneNumber_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="77,125,0,0" Name="phoneNumber_textBox" VerticalAlignment="Top" Width="158" Text="{Binding phoneNumber, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    <sdk:Label Content="Email:" Height="28" HorizontalAlignment="Left" Margin="22,163,0,0" Name="email_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="77,159,0,0" Name="email_textBox" VerticalAlignment="Top" Width="158" Text="{Binding email, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    <sdk:Label Content="Member Type:" Height="28" HorizontalAlignment="Left" Margin="22,197,0,0" Name="memberType_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+                    <RadioButton Content="New" Height="16" HorizontalAlignment="Left" Margin="77,196,0,0" Name="new_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="True" Grid.Column="1" Click="feesOwed" />
+                    <RadioButton Content="Returning" Height="16" HorizontalAlignment="Left" Margin="77,218,0,0" Name="returning_radioButton" VerticalAlignment="Top" GroupName="memberType" Grid.Column="1" Click="feesOwed" />
+                    <sdk:Label Content="Skill Level:" Height="28" HorizontalAlignment="Left" Margin="22,249,0,0" Name="skillLevel_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+                    <RadioButton Content="Beginner" Height="16" HorizontalAlignment="Left" Margin="77,249,0,0" Name="beginner_radioButton" VerticalAlignment="Top" GroupName="skillLevel" IsChecked="True" Grid.Column="1" />
+                    <RadioButton Content="Novice" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,271,0,0" Name="novice_radioButton" VerticalAlignment="Top" Grid.Column="1" />
+                    <RadioButton Content="Intermediate" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,293,0,0" Name="intermediate_radioButton" VerticalAlignment="Top" Grid.Column="1" />
+                    <RadioButton Content="Advanced" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,315,0,0" Name="advanced_radioButton" VerticalAlignment="Top" Grid.Column="1" />
+
+                    <Rectangle Height="94" HorizontalAlignment="Left" Margin="273,237,0,0" Name="rectangle1" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="293" Grid.Column="1" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="285,250,0,0" Name="admin_label" VerticalAlignment="Top" Width="120" Content="Admin Use Only:" Grid.Column="1" />
+                    <PasswordBox Height="23" HorizontalAlignment="Right" Margin="0,286,144,0" Name="admin_passwordBox" VerticalAlignment="Top" Width="158" Grid.Column="1" />
+
+                    <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="469,286,0,0" Name="submitButton" VerticalAlignment="Top" Width="75" Click="submitButton_Click" IsEnabled="{Binding NoErrors}" Grid.Column="1" />
+                    <sdk:Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="285,141,0,0" Name="membershipDue_label" VerticalAlignment="Top" Width="140" Content="Membership Fees Owed:" />
+                    <sdk:Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="435,140,0,0" Name="feesOwed_label" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="12" />
+
+                    <ubcbadm:ErrorModal Margin="115,76,170,78" x:Name="serverError" heading="Server Error" description="" Visibility="Collapsed" Grid.Column="1" IsEnabled="True"></ubcbadm:ErrorModal>
+                    <ubcbadm:ErrorModal Margin="115,76,170,78" x:Name="adminPasswordError" heading="Incorrect Password" description="Please speak to a club executive to proceed." Visibility="Collapsed" Grid.Column="1"></ubcbadm:ErrorModal>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+</UserControl>
