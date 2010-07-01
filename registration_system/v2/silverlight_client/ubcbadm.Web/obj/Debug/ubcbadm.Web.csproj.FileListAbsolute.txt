@@ -1,5 +1,0 @@
-C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\bin\ubcbadm.Web.dll
-C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\bin\ubcbadm.Web.pdb
-C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Debug\ubcbadm.Web.dll
-C:\Users\Jason\Desktop\ubcbadm\ubcbadm.Web\obj\Debug\ubcbadm.Web.pdb
