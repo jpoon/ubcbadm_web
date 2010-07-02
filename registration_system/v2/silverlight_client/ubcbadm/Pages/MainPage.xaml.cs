@@ -17,8 +17,8 @@ namespace ubcbadm
         }
 
         static string ADMIN_PASSWORD = "paid";
-        static string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
-        //static string MEMBER_URL = "http://localhost:8080/member";
+        //static string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
+        static string MEMBER_URL = "http://localhost:8080/member";
         static Dictionary<FeeTypes, string> MEMBERSHIP_FEES = new Dictionary<FeeTypes, string>() {
             {FeeTypes.New, "$50"},
             {FeeTypes.Returning, "$40"},
@@ -45,7 +45,7 @@ namespace ubcbadm
         {
             if (admin_passwordBox.Password != ADMIN_PASSWORD)
             {
-                adminPasswordError.Visibility = Visibility.Visible;
+                adminPasswordError.Show();
             }
             else
             {
@@ -73,20 +73,28 @@ namespace ubcbadm
                 else
                     member.skillLevel = advanced_radioButton.Content.ToString();
 
-                WebClient cnt = new WebClient();
-                cnt.Headers["Content-type"] = "application/json";
-                cnt.Encoding = Encoding.UTF8;
-                cnt.UploadStringAsync(new Uri(MEMBER_URL), "POST", ClubMember.Serialize(member));
-                cnt.UploadStringCompleted += new UploadStringCompletedEventHandler(cnt_UploadStringCompleted);
+                WebClient client = new WebClient();
+                client.Headers["Content-Type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                client.UploadStringCompleted += new UploadStringCompletedEventHandler(cnt_UploadStringCompleted);
+                client.UploadStringAsync(new Uri(MEMBER_URL), "POST", ClubMember.Serialize(member));
             }
         }
 
         void cnt_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
-            if (e.Error != null)
+            if (e.Error != null || !String.IsNullOrEmpty(e.Result))
             {
-                serverError.description = e.Error.Message;
-                serverError.Visibility = Visibility.Visible;
+                if (e.Error != null)
+                {
+                    serverError.description = e.Error.Message;
+                }
+                else
+                {
+                    serverError.description = e.Result;
+                }
+                serverError.heading = "Uh Oh! Error";
+                serverError.Show();
             }
             else
             {

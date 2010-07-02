@@ -75,7 +75,7 @@
                     <sdk:Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="285,141,0,0" Name="membershipDue_label" VerticalAlignment="Top" Width="140" Content="Membership Fees Owed:" />
                     <sdk:Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="435,140,0,0" Name="feesOwed_label" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="12" />
 
-                    <ubcbadm:ErrorModal Margin="115,76,170,78" x:Name="serverError" heading="Server Error" description="" Visibility="Collapsed" Grid.Column="1" IsEnabled="True"></ubcbadm:ErrorModal>
+                    <ubcbadm:ErrorModal Margin="115,76,170,78" x:Name="serverError" Visibility="Collapsed" Grid.Column="1"></ubcbadm:ErrorModal>
                     <ubcbadm:ErrorModal Margin="115,76,170,78" x:Name="adminPasswordError" heading="Incorrect Password" description="Please speak to a club executive to proceed." Visibility="Collapsed" Grid.Column="1"></ubcbadm:ErrorModal>
                 </Grid>
             </sdk:TabItem>

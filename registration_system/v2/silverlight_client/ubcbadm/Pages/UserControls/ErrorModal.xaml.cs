@@ -11,18 +11,23 @@ namespace ubcbadm
         public ErrorModal()
         {
             InitializeComponent();
-            Loaded += new RoutedEventHandler(ErrorModal_Loaded);
         }
 
-        void ErrorModal_Loaded(object sender, RoutedEventArgs e)
+        public void Show()
         {
             heading_textBlock.Text = heading;
             description_textBlock.Text = description;
+            Visibility = Visibility.Visible;
+        }
+
+        public void Hide()
+        {
+            Visibility = Visibility.Collapsed;
         }
 
         private void close_button_Click(object sender, RoutedEventArgs e)
         {
-            Visibility = Visibility.Collapsed;
+            Hide();
         }
     }
 }
