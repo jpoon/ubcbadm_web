@@ -12,7 +12,6 @@ class MemberModel(db.Model):
     email = db.EmailProperty(required=True)
     memberType = db.StringProperty(required=True)
     skillLevel = db.StringProperty(required=True)
-    memberNo = db.IntegerProperty(required=True)
 
 class Member:
     MAX_MEMBERS = 150
@@ -22,23 +21,18 @@ class Member:
             setattr(self, key, dict[key])
 
     def persist(self):
-        member = MemberModel(firstName = self.firstName,
-                             lastName = self.lastName,
-                             affiliation = self.affiliation,
-                             studentNo = self.studentNo,
-                             phoneNumber = self.phoneNumber,
-                             email = self.email,
-                             memberType = self.memberType,
-                             skillLevel = self.skillLevel,
-                             memberNo = self.__nextAvailableMemberNo())
-        member.put()
-        logging.info('Creating member with id %i' % member.memberNo)
-        return member.memberNo
-
-    def __nextAvailableMemberNo(self):
-        # Bug: If an entry is deleted, there will be duplicate membership numbers
-        memberList = MemberModel.all()
-        return memberList.count() + 1;
+        if not Member.isFull:
+            member = MemberModel(firstName = self.firstName,
+                                 lastName = self.lastName,
+                                 affiliation = self.affiliation,
+                                 studentNo = self.studentNo,
+                                 phoneNumber = self.phoneNumber,
+                                 email = self.email,
+                                 memberType = self.memberType,
+                                 skillLevel = self.skillLevel)
+                                
+            member.put()
+            logging.info('Creating member %s %s' % (member.firstName, member.lastName))
 
     @staticmethod
     def get(memberNo=None):

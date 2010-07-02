@@ -90,8 +90,7 @@ namespace ubcbadm
             }
             else
             {
-                uint membershipNo = uint.Parse(e.Result);
-                ConfirmationPage page = new ConfirmationPage(member, membershipNo);
+                ConfirmationPage page = new ConfirmationPage(member);
                 ((UserControlContainer)Application.Current.RootVisual).SwitchControl(page);
             }
         }

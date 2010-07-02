@@ -24,11 +24,9 @@ class MemberView(webapp.RequestHandler):
     def post(self):
         data = simplejson.loads(self.request.body)
         member = Member(data)
-        memberNo = member.persist()
+        member.persist()
 
         self.response.set_status(200)
-        self.response.out.write(memberNo)
-
 
         fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
         msgBody =   member.firstName + ' ' + member.lastName + ' (aka. member number <b>' + str(memberNo) + '</b>), \n\n' \
