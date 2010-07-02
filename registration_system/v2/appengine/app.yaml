@@ -16,9 +16,9 @@ handlers:
 - url: /scripts
   static_dir: static_files/scripts
 
-- url: /crossdomain.xml
-  static_files: static_files/crossdomain.xml
-  upload: static_files/crossdomain.xml
+- url: /clientaccesspolicy.xml
+  static_files: static_files/clientaccesspolicy.xml
+  upload: static_files/clientaccesspolicy.xml
 
 - url: /member.*
   script: /member/memberView.py
