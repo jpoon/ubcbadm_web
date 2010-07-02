@@ -22,18 +22,26 @@ class MemberView(webapp.RequestHandler):
         self.response.out.write(util.GqlEncoder().encode(list))
 
     def post(self):
+        if Member.isFull():
+            # Hack: Ideally would like to return a non 200 status code
+            # however, silverlight client unable to read status code message
+            self.response.set_status(200)
+            self.response.out.write("Membership Full")
+            return
+
         data = simplejson.loads(self.request.body)
         member = Member(data)
-        member.persist()
+        error = member.persist()
 
         self.response.set_status(200)
+        self.response.out.write(error)
 
         fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
-        msgBody =   member.firstName + ' ' + member.lastName ', \n\n' \
-                    '<p>Welcome to the UBC Badminton Club! ' \
-                    'In order to stay up-to-date with the latest club news, ' \
-                    'we recommend you either subscribe to our email newsletter, RSS feeds, or follow us on Twitter.</p>' \
-                    '<table>' \
+        msgBody = member.firstName + ' ' + member.lastName + ', \n\n' \
+                  '<p>Welcome to the UBC Badminton Club! ' \
+                  'In order to stay up-to-date with the latest club news, ' \
+                  'we recommend you either subscribe to our email newsletter, RSS feeds, or follow us on Twitter.</p>' \
+                  '<table>' \
                         '<tr>' \
                             '<td>Email Newsletter:</td>' \
                             '<td><a href="http://feedburner.google.com/fb/a/mailverify?uri=UBCBadmintonClub&amp;loc=en_US">subscribe</a></td>' \
@@ -46,7 +54,7 @@ class MemberView(webapp.RequestHandler):
                             '<td>Twitter:</td>' \
                             '<td><a href="http://twitter.com/ubcbadm">http://twitter.com/ubcbadm</a></td>' \
                         '</tr>' \
-                    '</table>'
+                  '</table>'
 
         util.send_mail(fromAddr,
                   member.email, 

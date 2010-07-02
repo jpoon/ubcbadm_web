@@ -21,7 +21,7 @@ class Member:
             setattr(self, key, dict[key])
 
     def persist(self):
-        if not Member.isFull:
+        try:
             member = MemberModel(firstName = self.firstName,
                                  lastName = self.lastName,
                                  affiliation = self.affiliation,
@@ -30,9 +30,10 @@ class Member:
                                  email = self.email,
                                  memberType = self.memberType,
                                  skillLevel = self.skillLevel)
-                                
             member.put()
             logging.info('Creating member %s %s' % (member.firstName, member.lastName))
+        except Exception, e:
+            return type(e)
 
     @staticmethod
     def get(memberNo=None):
@@ -52,20 +53,4 @@ class Member:
             return False
         else:
             logging.warn("Membership Full")
-            return True
-
-    @staticmethod
-    def isValidEmail(email):
-        query = MemberModel.gql("WHERE email= :email", email=email)
-        if query.count() > 0:
-            return False
-        else:
-            return True
-
-    @staticmethod
-    def isValidStudentNo(number):
-        query = MemberModel.gql("WHERE studentNo= :number", number=number)
-        if query.count() > 0:
-            return False
-        else:
             return True
