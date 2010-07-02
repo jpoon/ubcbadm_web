@@ -29,7 +29,7 @@ class MemberView(webapp.RequestHandler):
         self.response.set_status(200)
 
         fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
-        msgBody =   member.firstName + ' ' + member.lastName + ' (aka. member number <b>' + str(memberNo) + '</b>), \n\n' \
+        msgBody =   member.firstName + ' ' + member.lastName ', \n\n' \
                     '<p>Welcome to the UBC Badminton Club! ' \
                     'In order to stay up-to-date with the latest club news, ' \
                     'we recommend you either subscribe to our email newsletter, RSS feeds, or follow us on Twitter.</p>' \
