@@ -18,7 +18,7 @@ namespace ubcbadm
             get { return _firstName; }
             set
             {
-                value = TitleCase(value);
+                value = Util.TitleCase(value);
                 if (value != _firstName)
                 {
                     _firstName = value;
@@ -34,7 +34,7 @@ namespace ubcbadm
             get { return _lastName; }
             set
             {
-                value = TitleCase(value);
+                value = Util.TitleCase(value);
                 if (value != _lastName)
                 {
                     _lastName = value;
@@ -53,7 +53,10 @@ namespace ubcbadm
                 if (value != _affiliation)
                 {
                     _affiliation = value;
-                    InvokePropertyChanged("lastName");
+                    InvokePropertyChanged("affiliation");
+
+                    /* Notify error validation of updated affiliation value */
+                    InvokePropertyChanged("studentNo");
                 }
             }
         }
@@ -126,7 +129,7 @@ namespace ubcbadm
                 }
             }
         }
-        private string _memberType;
+        private string _memberType = "new";
 
         [DataMember]
         public string skillLevel
@@ -146,15 +149,60 @@ namespace ubcbadm
         }
         private string _skillLevel;
 
-        public string TitleCase(string str)
+        #endregion
+
+        #region Radio_Buttons
+        /* Affiliation */
+        public bool isAffiliation_student
         {
-            return Regex.Replace(str, @"\w+", (m) =>
+            get { return affiliation == "student"; }
+            set
             {
-                string tmp = m.Value;
-                return char.ToUpper(tmp[0]) + tmp.Substring(1, tmp.Length - 1).ToLower();
-            });
+                if (value == true)
+                    affiliation = "student";
+            }
         }
 
+        public bool isAffiliation_faculty
+        {
+            get { return affiliation == "faculty"; }
+            set
+            {
+                if (value == true)
+                    affiliation = "faculty";
+            }
+        }
+
+        public bool isAffiliation_other
+        {
+            get { return affiliation == "other"; }
+            set
+            {
+                if (value == true)
+                    affiliation = "other";
+            }
+        }
+
+        /* Member Type */
+        public bool isMemberType_New
+        {
+            get { return memberType == "new"; }
+            set
+            {
+                if (value == true)
+                    memberType = "new";
+            }
+        }
+
+        public bool isMemberType_Returning
+        {
+            get { return memberType == "returning"; }
+            set
+            {
+                if (value == true)
+                    memberType = "returning";
+            }
+        }
         #endregion
 
         #region Json
@@ -212,9 +260,13 @@ namespace ubcbadm
                         }
                         break;
                     case "studentNo":
-                        if (!string.IsNullOrEmpty(studentNo))
+                        if (affiliation == "student")
                         {
-                            if (!Regex.IsMatch(studentNo, @"^[0-9]+$"))
+                            if (string.IsNullOrEmpty(studentNo))
+                            {
+                                error = "Provide a student number";
+                            }
+                            else if (!Regex.IsMatch(studentNo, @"^[0-9]+$"))
                             {
                                 error = "Student number should be composed of numerical digits only";
                             }

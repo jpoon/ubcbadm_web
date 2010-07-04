@@ -42,12 +42,14 @@
                     <Rectangle Grid.Column="1" Height="54" HorizontalAlignment="Left" Margin="273,122,0,0" Name="rectangle2" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="293" Fill="#FFFAD1D1" />
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="24,20,0,0" Name="firstName_label" VerticalAlignment="Top" Width="106" Content="First Name:" Grid.ColumnSpan="2" />
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,16,352,0" Name="firstName_textBox" VerticalAlignment="Top" Width="158" Text="{Binding firstName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    
                     <sdk:Label Content="Last Name:" Height="28" HorizontalAlignment="Left" Margin="285,20,0,0" Name="lastName_label" VerticalAlignment="Top" Width="106" Grid.Column="1" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="397,16,0,0" Name="lastName_textBox" VerticalAlignment="Top" Width="158" Text="{Binding lastName, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    
                     <sdk:Label Content="UBC Affiliation:" Height="28" HorizontalAlignment="Left" Margin="24,54,0,0" Name="ubcAffiliation_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
-                    <RadioButton Content="Student" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,54,0,0" Name="student_radioButton" VerticalAlignment="Top" Checked="student_radioButton_Checked" Unchecked="student_radioButton_Unchecked" IsChecked="True" Grid.Column="1" Click="feesOwed" />
-                    <RadioButton Content="Faculty" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,76,0,0" Name="faculty_radioButton" VerticalAlignment="Top" Grid.Column="1" Click="feesOwed" />
-                    <RadioButton Content="Other (Non-AMS)" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,98,0,0" Name="other_radioButton" VerticalAlignment="Top" Grid.Column="1" Click="feesOwed" />
+                    <RadioButton Content="Student" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,54,0,0" Name="student_radioButton" VerticalAlignment="Top" Grid.Column="1" IsChecked="{Binding isAffiliation_student, Mode=TwoWay}" />
+                    <RadioButton Content="Faculty" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,76,0,0" Name="faculty_radioButton" VerticalAlignment="Top" Grid.Column="1" IsChecked="{Binding isAffiliation_faculty, Mode=TwoWay}" />
+                    <RadioButton Content="Other (Non-AMS)" GroupName="affiliation" Height="16" HorizontalAlignment="Left" Margin="78,98,0,0" Name="other_radioButton" VerticalAlignment="Top" Grid.Column="1" IsChecked="{Binding isAffiliation_other, Mode=TwoWay}" />
                     
                     <Grid Height="25" HorizontalAlignment="Left" Margin="285,57,0,0" Name="studentNoGrid" VerticalAlignment="Top" Width="270" Grid.Column="1">
                         <sdk:Label Content="Student Number:" Height="28" HorizontalAlignment="Left" Name="studentNo_label" VerticalAlignment="Top" Width="106" />
@@ -58,9 +60,10 @@
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="77,125,0,0" Name="phoneNumber_textBox" VerticalAlignment="Top" Width="158" Text="{Binding phoneNumber, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
                     <sdk:Label Content="Email:" Height="28" HorizontalAlignment="Left" Margin="22,163,0,0" Name="email_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="77,159,0,0" Name="email_textBox" VerticalAlignment="Top" Width="158" Text="{Binding email, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Column="1" />
+                    
                     <sdk:Label Content="Member Type:" Height="28" HorizontalAlignment="Left" Margin="22,197,0,0" Name="memberType_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
-                    <RadioButton Content="New" Height="16" HorizontalAlignment="Left" Margin="77,196,0,0" Name="new_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="True" Grid.Column="1" Click="feesOwed" />
-                    <RadioButton Content="Returning" Height="16" HorizontalAlignment="Left" Margin="77,218,0,0" Name="returning_radioButton" VerticalAlignment="Top" GroupName="memberType" Grid.Column="1" Click="feesOwed" />
+                    <RadioButton Content="New" Height="16" HorizontalAlignment="Left" Margin="77,196,0,0" Name="new_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="{Binding isMemberType_New, Mode=TwoWay}" Grid.Column="1" />
+                    <RadioButton Content="Returning" Height="16" HorizontalAlignment="Left" Margin="77,218,0,0" Name="returning_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="{Binding isMemberType_Returning, Mode=TwoWay}" Grid.Column="1" />
                     <sdk:Label Content="Skill Level:" Height="28" HorizontalAlignment="Left" Margin="22,249,0,0" Name="skillLevel_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
                     <RadioButton Content="Beginner" Height="16" HorizontalAlignment="Left" Margin="77,249,0,0" Name="beginner_radioButton" VerticalAlignment="Top" GroupName="skillLevel" IsChecked="True" Grid.Column="1" />
                     <RadioButton Content="Novice" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,271,0,0" Name="novice_radioButton" VerticalAlignment="Top" Grid.Column="1" />

@@ -95,6 +95,7 @@
     <Compile Include="Pages\UserControls\UserControlContainer.xaml.cs">
       <DependentUpon>UserControlContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

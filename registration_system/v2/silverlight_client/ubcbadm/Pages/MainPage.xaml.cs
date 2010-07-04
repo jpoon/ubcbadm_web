@@ -16,9 +16,14 @@ namespace ubcbadm
             Non_AMS
         }
 
-        static string ADMIN_PASSWORD = "paid";
-        //static string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
+#if DEBUG
         static string MEMBER_URL = "http://localhost:8080/member";
+#else
+        static string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
+#endif
+
+        static string ADMIN_PASSWORD = "paid";
+
         static Dictionary<FeeTypes, string> MEMBERSHIP_FEES = new Dictionary<FeeTypes, string>() {
             {FeeTypes.New, "$50"},
             {FeeTypes.Returning, "$40"},
@@ -34,11 +39,37 @@ namespace ubcbadm
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            fees_comboBox.SelectedIndex = 0;
             member = new ClubMember();
+            member.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(member_PropertyChanged);
+
             LayoutRoot.DataContext = member;
             LayoutRoot.BindingValidationError += new EventHandler<ValidationErrorEventArgs>(member.BindingValidationError);
-            feesOwed(null, null);
+
+            fees_comboBox.SelectedIndex = 0;
+            updateFeesOwed();
+        }
+
+        void member_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case "affiliation":
+                    if (member.affiliation == "student")
+                    {
+                        studentNoGrid.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        studentNoGrid.Visibility = Visibility.Collapsed;
+                        studentNo_textBox.Text = "";
+                    }
+                    updateFeesOwed();
+                    break;
+                case "memberType":
+                    updateFeesOwed();
+                    break;
+            }
+
         }
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
@@ -49,20 +80,6 @@ namespace ubcbadm
             }
             else
             {
-                // affiliation
-                if (student_radioButton.IsChecked == true)
-                    member.affiliation = student_radioButton.Content.ToString();
-                else if (faculty_radioButton.IsChecked == true)
-                    member.affiliation = faculty_radioButton.Content.ToString();
-                else
-                    member.affiliation = other_radioButton.Content.ToString();
-
-                // membership type
-                if (new_radioButton.IsChecked == true)
-                    member.memberType = new_radioButton.Content.ToString();
-                else
-                    member.memberType = returning_radioButton.Content.ToString();
-
                 // skill level
                 if (beginner_radioButton.IsChecked == true)
                     member.skillLevel = beginner_radioButton.Content.ToString();
@@ -103,39 +120,19 @@ namespace ubcbadm
             }
         }
 
-        private void feesOwed(object sender, RoutedEventArgs e)
+        private void updateFeesOwed()
         {
-            if (other_radioButton.IsChecked == true)
-                // Non-AMS
+            if (member.isAffiliation_other)
                 feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.Non_AMS];
             else
             {
                 // New
-                if (new_radioButton.IsChecked == true)
+                if (member.isMemberType_New)
                     feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.New];
                 // Returning
                 else
                     feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.Returning];
             }
-        }
-
-        private void student_radioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                studentNoGrid.Visibility = Visibility.Visible;
-            }
-            catch { }
-        }
-
-        private void student_radioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                studentNoGrid.Visibility = Visibility.Collapsed;
-                studentNo_textBox.Text = "";
-            }
-            catch { }
         }
 
         private void fees_comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
