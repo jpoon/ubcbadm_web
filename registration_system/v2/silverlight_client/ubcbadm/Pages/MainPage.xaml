@@ -64,11 +64,12 @@
                     <sdk:Label Content="Member Type:" Height="28" HorizontalAlignment="Left" Margin="22,197,0,0" Name="memberType_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
                     <RadioButton Content="New" Height="16" HorizontalAlignment="Left" Margin="77,196,0,0" Name="new_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="{Binding isMemberType_New, Mode=TwoWay}" Grid.Column="1" />
                     <RadioButton Content="Returning" Height="16" HorizontalAlignment="Left" Margin="77,218,0,0" Name="returning_radioButton" VerticalAlignment="Top" GroupName="memberType" IsChecked="{Binding isMemberType_Returning, Mode=TwoWay}" Grid.Column="1" />
+                    
                     <sdk:Label Content="Skill Level:" Height="28" HorizontalAlignment="Left" Margin="22,249,0,0" Name="skillLevel_label" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
-                    <RadioButton Content="Beginner" Height="16" HorizontalAlignment="Left" Margin="77,249,0,0" Name="beginner_radioButton" VerticalAlignment="Top" GroupName="skillLevel" IsChecked="True" Grid.Column="1" />
-                    <RadioButton Content="Novice" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,271,0,0" Name="novice_radioButton" VerticalAlignment="Top" Grid.Column="1" />
-                    <RadioButton Content="Intermediate" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,293,0,0" Name="intermediate_radioButton" VerticalAlignment="Top" Grid.Column="1" />
-                    <RadioButton Content="Advanced" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,315,0,0" Name="advanced_radioButton" VerticalAlignment="Top" Grid.Column="1" />
+                    <RadioButton Content="Beginner" Height="16" HorizontalAlignment="Left" Margin="77,249,0,0" Name="beginner_radioButton" VerticalAlignment="Top" GroupName="skillLevel" IsChecked="{Binding isSkillLevel_Beginner, Mode=TwoWay}" Grid.Column="1" />
+                    <RadioButton Content="Novice" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,271,0,0" Name="novice_radioButton" VerticalAlignment="Top" IsChecked="{Binding isSkillLevel_Novice, Mode=TwoWay}" Grid.Column="1" />
+                    <RadioButton Content="Intermediate" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,293,0,0" Name="intermediate_radioButton" VerticalAlignment="Top" IsChecked="{Binding isSkillLevel_Intermediate, Mode=TwoWay}" Grid.Column="1" />
+                    <RadioButton Content="Advanced" GroupName="skillLevel" Height="16" HorizontalAlignment="Left" Margin="77,315,0,0" Name="advanced_radioButton" VerticalAlignment="Top" IsChecked="{Binding isSkillLevel_Advanced, Mode=TwoWay}" Grid.Column="1" />
 
                     <Rectangle Height="94" HorizontalAlignment="Left" Margin="273,237,0,0" Name="rectangle1" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="293" Grid.Column="1" />
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="285,250,0,0" Name="admin_label" VerticalAlignment="Top" Width="120" Content="Admin Use Only:" Grid.Column="1" />

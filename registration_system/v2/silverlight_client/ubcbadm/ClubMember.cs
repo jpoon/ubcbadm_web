@@ -147,7 +147,7 @@ namespace ubcbadm
                 }
             }
         }
-        private string _skillLevel;
+        private string _skillLevel = "beginner";
 
         #endregion
 
@@ -201,6 +201,47 @@ namespace ubcbadm
             {
                 if (value == true)
                     memberType = "returning";
+            }
+        }
+
+        /* Skill Level */
+        public bool isSkillLevel_Beginner
+        {
+            get { return skillLevel == "beginner"; }
+            set
+            {
+                if (value == true)
+                    skillLevel = "beginner";
+            }
+        }
+
+        public bool isSkillLevel_Novice
+        {
+            get { return skillLevel == "novice"; }
+            set
+            {
+                if (value == true)
+                    skillLevel = "novice";
+            }
+        }
+
+        public bool isSkillLevel_Intermediate
+        {
+            get { return skillLevel == "intermediate"; }
+            set
+            {
+                if (value == true)
+                    skillLevel = "intermediate";
+            }
+        }
+
+        public bool isSkillLevel_Advanced
+        {
+            get { return skillLevel == "advanced"; }
+            set
+            {
+                if (value == true)
+                    skillLevel = "advanced";
             }
         }
         #endregion

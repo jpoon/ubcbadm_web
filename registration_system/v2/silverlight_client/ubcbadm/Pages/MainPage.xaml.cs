@@ -55,9 +55,7 @@ namespace ubcbadm
             {
                 case "affiliation":
                     if (member.affiliation == "student")
-                    {
                         studentNoGrid.Visibility = Visibility.Visible;
-                    }
                     else
                     {
                         studentNoGrid.Visibility = Visibility.Collapsed;
@@ -80,16 +78,6 @@ namespace ubcbadm
             }
             else
             {
-                // skill level
-                if (beginner_radioButton.IsChecked == true)
-                    member.skillLevel = beginner_radioButton.Content.ToString();
-                else if (novice_radioButton.IsChecked == true)
-                    member.skillLevel = novice_radioButton.Content.ToString();
-                else if (intermediate_radioButton.IsChecked == true)
-                    member.skillLevel = intermediate_radioButton.Content.ToString();
-                else
-                    member.skillLevel = advanced_radioButton.Content.ToString();
-
                 WebClient client = new WebClient();
                 client.Headers["Content-Type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
