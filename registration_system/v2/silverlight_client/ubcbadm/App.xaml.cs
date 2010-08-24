@@ -28,7 +28,7 @@ namespace ubcbadm
         {
             // Load the main control
             this.RootVisual = new UserControlContainer();
-            MainPage page = new MainPage();
+            HomePage page = new HomePage();
             ((UserControlContainer)this.RootVisual).SwitchControl(page);
         }
 

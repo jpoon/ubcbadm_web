@@ -7,34 +7,30 @@ using System.Windows.Controls;
 
 namespace ubcbadm
 {
-    public partial class MainPage : UserControl
+    public partial class HomePage : Page
     {
-        public enum FeeTypes
-        {
-            New,
-            Returning,
-            Non_AMS
-        }
-
 #if DEBUG
-        static string MEMBER_URL = "http://localhost:8080/member";
+        const string MEMBER_URL = "http://localhost:8080/member";
 #else
-        static string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
+        const string MEMBER_URL = "http://ubc-badminton.appspot.com/member";
 #endif
 
-        static string ADMIN_PASSWORD = "paid";
+        const string ADMIN_PASSWORD = "paid";
 
-        static Dictionary<FeeTypes, string> MEMBERSHIP_FEES = new Dictionary<FeeTypes, string>() {
-            {FeeTypes.New, "$50"},
-            {FeeTypes.Returning, "$40"},
-            {FeeTypes.Non_AMS, "$60"}
+        readonly static Dictionary<string, string> MEMBERSHIP_FEES = new Dictionary<string, string>() {
+            {"New", "$50"},
+            {"Returning", "$40"},
+            {"Non_AMS", "$60"}
         };
+
+
+
         ClubMember member;
 
-        public MainPage()
+        public HomePage()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            Loaded += new RoutedEventHandler(MainPage_Loaded);
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -42,14 +38,16 @@ namespace ubcbadm
             member = new ClubMember();
             member.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(member_PropertyChanged);
 
+            /* Info Page */
+            fees_comboBox.SelectedIndex = 0;
+
+            /* Register Page */
+            updateFeesOwed();
             LayoutRoot.DataContext = member;
             LayoutRoot.BindingValidationError += new EventHandler<ValidationErrorEventArgs>(member.BindingValidationError);
-
-            fees_comboBox.SelectedIndex = 0;
-            updateFeesOwed();
         }
 
-        void member_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void member_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
@@ -57,10 +55,7 @@ namespace ubcbadm
                     if (member.affiliation == "student")
                         studentNoGrid.Visibility = Visibility.Visible;
                     else
-                    {
                         studentNoGrid.Visibility = Visibility.Collapsed;
-                        studentNo_textBox.Text = "";
-                    }
                     updateFeesOwed();
                     break;
                 case "memberType":
@@ -78,6 +73,9 @@ namespace ubcbadm
             }
             else
             {
+                if (member.affiliation != "student")
+                    member.studentNo = "";
+
                 WebClient client = new WebClient();
                 client.Headers["Content-Type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
@@ -86,7 +84,7 @@ namespace ubcbadm
             }
         }
 
-        void cnt_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        private void cnt_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             if (e.Error != null || !String.IsNullOrEmpty(e.Result))
             {
@@ -111,15 +109,15 @@ namespace ubcbadm
         private void updateFeesOwed()
         {
             if (member.isAffiliation_other)
-                feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.Non_AMS];
+                feesOwed_label.Content = MEMBERSHIP_FEES["Non_AMS"];
             else
             {
                 // New
                 if (member.isMemberType_New)
-                    feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.New];
+                    feesOwed_label.Content = MEMBERSHIP_FEES["New"];
                 // Returning
                 else
-                    feesOwed_label.Content = MEMBERSHIP_FEES[FeeTypes.Returning];
+                    feesOwed_label.Content = MEMBERSHIP_FEES["Returning"];
             }
         }
 
@@ -129,15 +127,15 @@ namespace ubcbadm
             {
                 case 0:
                     // new member
-                    feeAmount_label.Content = MEMBERSHIP_FEES[FeeTypes.New];
+                    feeAmount_label.Content = MEMBERSHIP_FEES["New"];
                     break;
                 case 1:
                     // returning member
-                    feeAmount_label.Content = MEMBERSHIP_FEES[FeeTypes.Returning];
+                    feeAmount_label.Content = MEMBERSHIP_FEES["Returning"];
                     break;
                 case 2:
                     // non-ams
-                    feeAmount_label.Content = MEMBERSHIP_FEES[FeeTypes.Non_AMS];
+                    feeAmount_label.Content = MEMBERSHIP_FEES["Non_AMS"];
                     break;
             }
         }

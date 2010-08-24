@@ -273,7 +273,7 @@ namespace ubcbadm
 
         #endregion
 
-        #region ErrorHandling
+        #region Data_Validation
 
         public string Error
         {
@@ -320,7 +320,7 @@ namespace ubcbadm
                     case "phoneNumber":
                         if (string.IsNullOrEmpty(phoneNumber))
                         {
-                            error = "Provide an phone number";
+                            error = "Provide an phone number \n(ex. 604-123-1234)";
                         }
                         else if (!Regex.IsMatch(phoneNumber, @"^[0-9\-\(\)]+$"))
                         {

@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="ubcbadm.MainPage"
+﻿<navigation:Page x:Class="ubcbadm.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ubcbadm="clr-namespace:ubcbadm;assembly=ubcbadm"
     mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
     d:DesignHeight="400" d:DesignWidth="650" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
 
         <Grid x:Name="LayoutRoot" Background="White">
@@ -12,7 +13,8 @@
             <sdk:TabItem Header="Information" Name="info_tabItem">
                 <Grid>
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,6,0,0" Name="about_label" VerticalAlignment="Top" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold" Content="About Us" />
-                    <TextBlock Height="55" HorizontalAlignment="Left" Margin="16,30,0,0" Name="textBlock1" Text="The University of British Columbia (UBC) Badminton Club is a registered AMS club at the University of British Columbia in Vancouver, British Columbia, Canada. The club is wholly administered and organized by a group of passionate badminton players who are commited to promoting and encouraging the sport of badminton." VerticalAlignment="Top" Width="607" TextWrapping="Wrap" />
+                    <TextBlock Height="55" HorizontalAlignment="Left" Margin="16,30,0,0" Name="about_textBlock" Text="The University of British Columbia (UBC) Badminton Club is a registered AMS club at the University of British Columbia in Vancouver, British Columbia, Canada. The club is wholly administered and organized by a group of passionate badminton players who are commited to promoting and encouraging the sport of badminton." VerticalAlignment="Top" Width="607" TextWrapping="Wrap" />
+                    
                     <sdk:Label Content="Membership" FontSize="14" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="16,91,0,0" Name="membership_label" VerticalAlignment="Top" Width="166" />
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,130,0,0" Name="fees_label" VerticalAlignment="Top" Width="120" Content="Fees:" />
                     <ComboBox Height="23" HorizontalAlignment="Left" Margin="142,126,0,0" Name="fees_comboBox" VerticalAlignment="Top" Width="161" SelectionChanged="fees_comboBox_SelectionChanged">
@@ -20,11 +22,12 @@
                         <ComboBoxItem Content="Returning Member"></ComboBoxItem>
                         <ComboBoxItem Content="Non-AMS Member"></ComboBoxItem>
                     </ComboBox>
-                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="87,130,0,0" Name="feeAmount_label" VerticalAlignment="Top" Width="120" Content="fee" />
+                    <sdk:Label Height="28" HorizontalAlignment="Left" Margin="87,130,0,0" Name="feeAmount_label" VerticalAlignment="Top" Width="49" />
                     <sdk:Label Content="Duration:" Height="28" HorizontalAlignment="Left" Margin="16,158,0,0" Name="duration_label" VerticalAlignment="Top" Width="120" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="87,158,0,0" Name="duration_textBlock" Text="8 months (September - April)" VerticalAlignment="Top" Width="216" />
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,183,0,0" Name="benefits_label" VerticalAlignment="Top" Width="65" Content="Benefits:" />
                     <TextBlock Height="68" HorizontalAlignment="Left" Margin="87,183,0,0" Name="benefits_textBlock" Text="all necessary equipment provided (rackets, nylon shuttlecocks), members-only tournament, food nights, discounted open tournament registration fees, subsidized UBC Rec badminton tournaments, over 40 gym nights thoughout the year, recreational and competitive games for all level of play, organized queue board system" VerticalAlignment="Top" Width="536" TextWrapping="Wrap" />
+                    
                     <sdk:Label Content="Gym Schedule" FontSize="14" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="16,272,0,0" Name="schedule_label" VerticalAlignment="Top" Width="166" />
                     <sdk:Label Height="28" HorizontalAlignment="Left" Margin="16,301,0,0" Name="term1_label" VerticalAlignment="Top" Width="120" Content="Term 1:" />
                     <sdk:Label Content="Term 2:" Height="28" HorizontalAlignment="Left" Margin="16,321,0,0" Name="term2_label" VerticalAlignment="Top" Width="120" />
@@ -85,4 +88,4 @@
             </sdk:TabItem>
         </sdk:TabControl>
     </Grid>
-</UserControl>
+</navigation:Page>

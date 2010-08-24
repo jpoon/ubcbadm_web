@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="ubcbadm.ConfirmationPage"
+﻿<navigation:Page x:Class="ubcbadm.ConfirmationPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
     d:DesignHeight="400" d:DesignWidth="650" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
     
     <Grid x:Name="LayoutRoot" Background="White">
@@ -12,4 +13,4 @@
         <Image Height="129" HorizontalAlignment="Left" Margin="0,271,0,0" Name="skylineImage" VerticalAlignment="Top" Width="650" Source="/ubcbadm;component/Resources/skyline.png" />
         <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="543,242,0,0" Name="ok_button" VerticalAlignment="Top" Width="75" Click="ok_button_Click" />
     </Grid>
-</UserControl>
+</navigation:Page>

@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace ubcbadm
 {
-    public partial class ConfirmationPage : UserControl
+    public partial class ConfirmationPage : Page
     {
         ClubMember member;
 
@@ -25,24 +25,8 @@ namespace ubcbadm
 
         private void ok_button_Click(object sender, RoutedEventArgs e)
         {
-            MainPage page = new MainPage();
+            HomePage page = new HomePage();
             ((UserControlContainer)Application.Current.RootVisual).SwitchControl(page);
         }
-
-        /*
-        WebClient wc = new WebClient();
-        wc.OpenReadCompleted += new OpenReadCompletedEventHandler(wc_OpenReadCompleted);
-        wc.OpenReadAsync(new Uri(memberGetUrl + "?member));
-    }
-
-    void wc_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
-    {
-        List<ClubMember> list = ClubMember.Deserialize<List<ClubMember>>(e.Result);
-        foreach (ClubMember member in list)
-        {
-            //
-        }
-    }
-         */
     }
 }
