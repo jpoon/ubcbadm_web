@@ -1,5 +1,6 @@
 import hashlib
 import logging
+from mutex import *
 from google.appengine.ext import db
 
 class MemberModel(db.Model):
@@ -12,6 +13,7 @@ class MemberModel(db.Model):
     email = db.EmailProperty(required=True)
     memberType = db.StringProperty(required=True)
     skillLevel = db.StringProperty(required=True)
+    memberNo = db.IntegerProperty(required=True)
 
 class Member:
     MAX_MEMBERS = 150
@@ -21,7 +23,9 @@ class Member:
             setattr(self, key, dict[key])
 
     def persist(self):
+        m = Mutex("memberModel")
         try:
+            m.lock()
             member = MemberModel(firstName = self.firstName,
                                  lastName = self.lastName,
                                  affiliation = self.affiliation,
@@ -29,11 +33,19 @@ class Member:
                                  phoneNumber = self.phoneNumber,
                                  email = self.email,
                                  memberType = self.memberType,
-                                 skillLevel = self.skillLevel)
+                                 skillLevel = self.skillLevel,
+                                 memberNo = self.__calcMemberNo())
             member.put()
-            logging.info('Creating member %s %s' % (member.firstName, member.lastName))
+            logging.info('Creating member %d -- %s %s' % (member.memberNo, member.firstName, member.lastName))
         except Exception, e:
+            logging.error(e)
             return type(e)
+        finally:
+            m.unlock()
+
+    def __calcMemberNo(self):
+        memberList = MemberModel.all()
+        return memberList.count() + 1
 
     @staticmethod
     def get(memberNo=None):
