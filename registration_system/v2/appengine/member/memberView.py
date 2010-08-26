@@ -39,7 +39,7 @@ class MemberView(webapp.RequestHandler):
         fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
         msgBody = member.firstName + ' ' + member.lastName + ', \n\n' \
                   '<p>Welcome to the UBC Badminton Club! ' \
-                  'Your membership number is <b>' + member.memberNo + '</b>. ' \
+                  'Your membership number is <b>' + str(member.memberNo) + '</b>. ' \
                   'In order to stay up-to-date with the latest club news, ' \
                   'we recommend you either subscribe to our email newsletter, RSS feed, or follow us on Twitter.</p>' \
                   '<table>' \
@@ -59,7 +59,7 @@ class MemberView(webapp.RequestHandler):
 
         util.send_mail(fromAddr,
                   member.email, 
-                  '[UBC Badm] Welcome ' member.firstName '!',
+                  '[UBC Badm] Welcome ' + member.firstName + '!',
                   msgBody)
 
 application = webapp.WSGIApplication(   [('/member', MemberView)],

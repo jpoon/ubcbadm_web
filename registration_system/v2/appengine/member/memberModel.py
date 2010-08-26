@@ -36,6 +36,7 @@ class Member:
                                  skillLevel = self.skillLevel,
                                  memberNo = self.__calcMemberNo())
             member.put()
+            self.memberNo = member.memberNo
             logging.info('Creating member %d -- %s %s' % (member.memberNo, member.firstName, member.lastName))
         except Exception, e:
             logging.error(e)
