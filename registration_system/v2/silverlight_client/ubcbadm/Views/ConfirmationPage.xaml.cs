@@ -6,11 +6,13 @@ namespace ubcbadm
     public partial class ConfirmationPage : Page
     {
         ClubMember member;
+        int memberNo;
 
-        public ConfirmationPage(ClubMember member)
+        public ConfirmationPage(ClubMember member, int memberNo)
         {
             InitializeComponent();
             this.member = member;
+            this.memberNo = memberNo;
 
             Loaded += new RoutedEventHandler(ConfirmationPage_Loaded);
         }
@@ -18,7 +20,8 @@ namespace ubcbadm
         void ConfirmationPage_Loaded(object sender, RoutedEventArgs e)
         {
             name_label.Content = member.firstName + " " + member.lastName + ",";
-            welcome_textblock.Text = "Congratulations on becoming a member of the UBC Badminton Club! " +
+            memberNo_label.Content = memberNo;
+            welcome_textblock.Text = "Congratulations on becoming a member of the UBC Badminton Club! \r\n\r\n" +
                 "Be sure to check your email inbox as we just sent an email to " + member.email +
                 " containing important badminton club information.";
         }

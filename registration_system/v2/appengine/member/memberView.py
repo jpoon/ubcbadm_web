@@ -22,22 +22,26 @@ class MemberView(webapp.RequestHandler):
         self.response.out.write(util.GqlEncoder().encode(list))
 
     def post(self):
-        if Member.isFull():
-            # Hack: Ideally would like to return a non 200 status code
-            # however, silverlight client unable to read status code message
-            self.response.set_status(200)
-            self.response.out.write("Membership Full")
-            return
-
-        data = simplejson.loads(self.request.body)
-        member = Member(data)
-        error = member.persist()
-
+        # Hack: Ideally would like to return a non 200 status code
+        # however, silverlight client unable to read status code message
         self.response.set_status(200)
-        self.response.out.write(error)
 
-        fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
-        msgBody = member.firstName + ' ' + member.lastName + ', \n\n' \
+        if Member.isFull():
+           self.response.out.write("Membership Full")
+           return
+
+        try:
+            data = simplejson.loads(self.request.body)
+            member = Member(data)
+            member.persist()
+        except Exception, e:
+            logging.error(e)
+            self.response.out.write(type(e))
+        else:
+            self.response.out.write(member.memberNo)
+
+            fromAddr = 'UBC Badminton Club <ubc.badm@gmail.com>'
+            msgBody = member.firstName + ' ' + member.lastName + ', \n\n' \
                   '<p>Welcome to the UBC Badminton Club! ' \
                   'Your membership number is <b>' + str(member.memberNo) + '</b>. ' \
                   'In order to stay up-to-date with the latest club news, ' \
@@ -57,7 +61,7 @@ class MemberView(webapp.RequestHandler):
                         '</tr>' \
                   '</table>'
 
-        util.send_mail(fromAddr,
+            util.send_mail(fromAddr,
                   member.email, 
                   '[UBC Badm] Welcome ' + member.firstName + '!',
                   msgBody)

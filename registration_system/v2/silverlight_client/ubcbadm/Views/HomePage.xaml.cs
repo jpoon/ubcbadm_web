@@ -86,7 +86,13 @@ namespace ubcbadm
 
         private void cnt_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
-            if (e.Error != null || !String.IsNullOrEmpty(e.Result))
+            try
+            {
+                int memberNo = int.Parse(e.Result);
+                ConfirmationPage page = new ConfirmationPage(member, memberNo);
+                ((UserControlContainer)Application.Current.RootVisual).SwitchControl(page);
+            }
+            catch
             {
                 if (e.Error != null)
                 {
@@ -96,13 +102,8 @@ namespace ubcbadm
                 {
                     serverError.description = e.Result;
                 }
-                serverError.heading = "Uh Oh! Error";
+                serverError.heading = "Egads! Error!";
                 serverError.Show();
-            }
-            else
-            {
-                ConfirmationPage page = new ConfirmationPage(member);
-                ((UserControlContainer)Application.Current.RootVisual).SwitchControl(page);
             }
         }
 

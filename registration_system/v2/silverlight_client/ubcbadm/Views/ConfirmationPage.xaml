@@ -8,9 +8,11 @@
     d:DesignHeight="400" d:DesignWidth="650" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
     
     <Grid x:Name="LayoutRoot" Background="White">
-        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="32,29,0,0" Name="name_label" VerticalAlignment="Top" Width="120" FontSize="12" />
-        <TextBlock Height="88" HorizontalAlignment="Left" Margin="32,63,0,0" Name="welcome_textblock" Text="" VerticalAlignment="Top" Width="586" TextWrapping="Wrap" FontSize="12" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="32,29,0,0" Name="name_label" VerticalAlignment="Top" Width="256" FontSize="12" />
+        <TextBlock Height="141" HorizontalAlignment="Left" Margin="32,76,0,0" Name="welcome_textblock" Text="" VerticalAlignment="Top" Width="586" TextWrapping="Wrap" FontSize="12" />
         <Image Height="129" HorizontalAlignment="Left" Margin="0,271,0,0" Name="skylineImage" VerticalAlignment="Top" Width="650" Source="/ubcbadm;component/Resources/skyline.png" />
-        <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="543,242,0,0" Name="ok_button" VerticalAlignment="Top" Width="75" Click="ok_button_Click" />
+        <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="543,231,0,0" Name="ok_button" VerticalAlignment="Top" Width="75" Click="ok_button_Click" />
+        <sdk:Label FontSize="14" Height="28" Margin="580,27,32,0" Name="memberNo_label" VerticalAlignment="Top" FontWeight="Bold" FontStretch="Normal" Content="150" />
+        <sdk:Label FontSize="12" Height="28" HorizontalAlignment="Right" Margin="0,29,76,0" Name="label1" VerticalAlignment="Top" Width="141" Content="Your Membership No:" />
     </Grid>
 </navigation:Page>
